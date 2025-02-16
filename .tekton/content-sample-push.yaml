@@ -539,6 +539,8 @@ spec:
         value: $(params.path-context)
       - name: SOURCE_ARTIFACT
         value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
+      - name: ADDITIONAL_TAGS
+        value: [ "latest", "1.0.$(tasks.clone-repository.results.commit-timestamp)" ]
       runAfter:
       - build-image-index
       taskRef:
